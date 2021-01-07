@@ -8,21 +8,6 @@ char teachers[500];
 const char *week_days[5];
 char week_day_name[251];
 
-int write_head ( FILE *fc ){
-    fprintf ( fc, "<html>\n" ) ;
-    fprintf ( fc, "<body style=\"background-color: lightgrey\"; >\n" ) ;
-    fprintf ( fc, "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n" ) ;
-    fprintf ( fc, "<label style=\"font-size: 4em; font-weight: bold\">" );
-    fprintf ( fc, "Расписание учителей</label><br>\n\n" ) ;         /// имя учителя в шапке файла учителя
-
-
-    fprintf ( fc, "<table width=\"100%%\" cols = \"3\" rules=\"all\" " ) ;
-    fprintf ( fc, "style = \"border: 3px solid black; background: white; border-collapse;" );
-    fprintf ( fc, "font-size: 4em\">\n" );
-
-    return 0;
-}
-
 int read_day_names (){
     FILE *fp;
 
@@ -130,6 +115,24 @@ int write_teacher ( char *tname){
     fclose(tn);
 }
 
+/// формирование файла-оглавления rt.html в две колонки
+/// шапка :
+int write_head ( FILE *fc ){
+    fprintf ( fc, "<html>\n" ) ;
+    fprintf ( fc, "<body style=\"background-color: lightgrey\"; >\n" ) ;
+    fprintf ( fc, "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n" ) ;
+    fprintf ( fc, "<label style=\"font-size: 4em; font-weight: bold\">" );
+    fprintf ( fc, "Расписание учителей</label><br>\n\n" ) ;
+
+
+    fprintf ( fc, "<table width=\"100%%\" cols = \"2\" rules=\"none\" " ) ;
+    fprintf ( fc, "style = \"border: 5px solid black; background: white; border-collapse;" );
+    fprintf ( fc, "font-size: 2em\">\n" );
+
+    return 0;
+}
+
+/// построчная запись фамилий учителей
 int write_rt ( char *tname, int x, FILE *fc ){
     int len;
     len = strlen(tname) - 5;
@@ -138,16 +141,17 @@ int write_rt ( char *tname, int x, FILE *fc ){
     if ( x%2 == 0 ){
          fprintf ( fc, " <tr>\n" ) ;
 
-        fprintf ( fc, "  <td width=\"45%%\">" ) ;
+        fprintf ( fc, "  <td width=\"50%%\" style=\"font-size: 2em; border: 5px solid black;\">" ) ;
         fprintf ( fc, "<a href=\"%s.html\">%s</a>", tname, tname );
         fprintf ( fc, "</td>\n" ) ;
 
-        fprintf ( fc, "  <td width=\"10%%\"" ) ;    /// промежуточная серая клетка-разделитель
-        fprintf ( fc, " style = \"background:lightgrey\">"  ) ;
-        fprintf ( fc, "</td>\n" ) ;
+///        fprintf ( fc, "  <td width=\"10%%\"" ) ;    /// промежуточная серая клетка-разделитель
+///        fprintf ( fc, " style = \"background:lightgrey\">"  ) ;
+///        fprintf ( fc, "</td>\n" ) ;
         }
     else{
-        fprintf ( fc, "  <td width=\"45%%\"" ) ;
+///        fprintf ( fc, "  <td width=\"50%%\"" ) ;
+        fprintf ( fc, "  <td width=\"50%%\" style=\"font-size: 2em; border: 5px solid black;\"" ) ;
         if ( len <= 1 )fprintf ( fc, " style = \"background:lightgrey\">"  );
         else fprintf( fc, ">" );
         fprintf ( fc, "<a href=\"%s.html\">%s</a>", tname, tname );
@@ -158,12 +162,12 @@ int write_rt ( char *tname, int x, FILE *fc ){
     return 0;
 }
 
-int main () {
+int main ( ) {
     FILE *ft, *rt, *ft1, *fc;
     int x = 0;                              /// количество прочитанных учителей
-    ft = fopen( "Учителя.csv", "r" );       /// в кодировке UTF-8
+    ft  = fopen ( "Учителя.csv",  "r" );    /// в кодировке UTF-8
     ft1 = fopen ( "Учителя1.csv", "r" );    /// в кодировке ANSI с тем же содержимым
-    read_day_names();                       /// в кодировке UTF-8 считываем названия дней недели в глобальный массив week_day_name[251];
+    read_day_names(); /// в кодировке UTF-8 считываем названия дней недели в глобальный массив week_day_name[251];
     if ( ft == NULL || ft1 == NULL ) {
         cout << "open error";
         return 0;
@@ -175,24 +179,24 @@ int main () {
     for ( ;; ){
         char teachers1[500]; /// имена учителей в кодировке ANSI
         char *teach, *teach1;
-        teach = fgets( teachers, 480, ft ); /// teachers[] - глобальный массив
+        teach = fgets( teachers, 480, ft ); /// teachers[] - глобальный массив-считанная строка
         teach1 = fgets( teachers1, 480, ft1 );
         if ( teach == NULL || teach1 == NULL ) break;
         else {
-                write_teacher( teachers1 );
-                write_rt(teachers1, x++, fc);
+                write_teacher( teachers1 );     /// создание файла html для учителя teachers1
+                write_rt(teachers1, x++, fc);   /// добавление записи в таблицу rt.html
         }
     }
 
     fclose(ft1);
     fclose(ft);
 
-    if ( x%2 ) {
-            char t[6] = {0};
-            write_rt( t, x, fc );
+    if ( x % 2 ) {   /// заполнение правой нижней клетки, если учителей нечётное количество
+            char nemo[6] = {0};
+            write_rt ( nemo, x, fc );
     }
     fprintf ( fc, "\n</table>\n</body>\n</html>\n" ) ;
-    fclose(fc);
-    cout << x;
+    fclose ( fc ) ;
+    cout << x << " teachers in the table\n" ;
     return 0 ;
 }
