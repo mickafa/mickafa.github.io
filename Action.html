@@ -31,12 +31,14 @@
 <label style="font-size: 4em; font-weight: bold"></label><br>
 
 
-<table width="100%" cols = "2" rules="rows" style = "border: 3px solid black; border-collapse; font-size: 2em" >
+<table width="100%" cols = "1" rules="rows" style = "border: 3px solid black; border-collapse; font-size: 2em" >
 
    <tr>
-    	<td width="70%" style="font-size: 4em">Твой класс:</td>
+    	<td width="100%" style="font-size: 4em">Твой класс:</td>
+   </tr>
+   <tr>
 	<td>
-	<table style="font-size: 2em"><tr><td width="15%">
+	<table cols = "2" style="font-size: 2em"><tr><td width="50%">
 
   		<select size="1" id="Класс - число" required name="entry.511480503" style="font-size: 4em">
 			<option disabled selected></option>
@@ -53,7 +55,7 @@
     			<option value="11">11</option>
    		</select> </td>
 
-	<td  width="15%">
+	<td  width="50%">
    		<select size="1" id="буква" required name="entry.831215445" style="font-size: 4em">
 			<option disabled selected></option>
     			<option value="А">А</option>
@@ -71,8 +73,10 @@
 
 <td>
 
-	<label style="font-size: 4em; font-weight: bold"><font color="black";>По какому предмету хочешь получить 5:</font></label>
+	<label style="font-size: 4em;"><font color="black";>По какому предмету хочешь получить 5:</font></label>
 </td>
+</tr>
+<tr>
 <td>
 
 	<datalist id="Предмет">
@@ -97,6 +101,7 @@
 
 </td>
 </tr>
+</table>
 
 <br><br><br><br>
 
