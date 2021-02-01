@@ -1,6 +1,39 @@
 <html>
 <body style="background-color: lightgrey"; >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Акция</title>
+
+<style>
+ .b_submit{
+	position:relative;
+	text-decoration:none;
+	color: black;
+	border-radius:2px;
+	cursor: pointer;
+	border: 3px solid black;
+
+  outline: none;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, LightGreen, ForestGreen) ; 
+  box-shadow:
+   0 1px rgba(255,255,255,.2) inset,
+   0 3px 5px rgba(0,1,6,.5),
+   0 0 1px 1px rgba(0,1,6,.2);
+	top: 1px;
+	bottom: 5px ;
+	}
+ 
+ .b_submit:active{
+  background: linear-gradient( to bottom, DarkGreen, LightGreen) ;
+  box-shadow:
+   0 0 1px rgba(0,0,0,.5) inset,
+   0 2px 3px rgba(0,0,0,.5) inset,
+   0 1px 1px rgba(255,255,255,.1);
+	top: 8px;
+	bottom: 1px;
+	}
+
+</style>
 
 
 <form 
@@ -109,7 +142,7 @@
   <tr style = "border: 4px solid black">
 	<td width="25%" style = "background:lightgrey"></td>
 	<td width="50%">
-		<button type="sumbit" style = "text-align:center; color:black;  font-size: 2em; background:LightGreen; border:6px solid black;">
+		<button type="sumbit" class="b_submit"  style = "font-size: 2em;">
         Получить 5</button></td>
 	<td width="25%" style = "background:lightgrey"></td>
   </tr>
