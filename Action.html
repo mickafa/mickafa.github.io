@@ -1,42 +1,12 @@
 <html>
-<body style="background-color: lightgrey"; >
+<body style="background-color: grey"; >
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Акция</title>
-
-<style>
- .b_submit{
-	position:relative;
-	text-decoration:none;
-	color: black;
-	border-radius:2px;
-	cursor: pointer;
-	border: 3px solid black;
-
-  outline: none;
-  border-radius: 3px;
-  background: linear-gradient(to bottom, LightGreen, ForestGreen) ; 
-  box-shadow:
-   0 1px rgba(255,255,255,.2) inset,
-   0 3px 5px rgba(0,1,6,.5),
-   0 0 1px 1px rgba(0,1,6,.2);
-	top: 1px;
-	bottom: 5px ;
-	}
- 
- .b_submit:active{
-  background: linear-gradient( to bottom, DarkGreen, LightGreen) ;
-  box-shadow:
-   0 0 1px rgba(0,0,0,.5) inset,
-   0 2px 3px rgba(0,0,0,.5) inset,
-   0 1px 1px rgba(255,255,255,.1);
-	top: 8px;
-	bottom: 1px;
-	}
-
-</style>
 
 
 <form 
+ 
+
+
 	action= "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeHBpJaITSsHsLWwqiScAkeEp221CLE1nr-haFCnpYgd51qTg/formResponse"
  	target="_self" method="POST" id="mG61Hd" jsmodel="TOfxwf Q91hve" data-response="%.@.[]]" data-first-entry="0" data-last-entry="3" data-is-first-page="true"
 	onsubmit="submitted=true;"
@@ -52,12 +22,29 @@
              font-size: xx-large"
 >
 
-<label style="font-size: 2.5em;"><font color="black";>Акция! Только до конца второго триместра! Получи бонус - ПЯТЁРКУ по ЛЮБОМУ предмету на твой выбор!</font></label><br>
+
+<label style="font-size: 4em;"><font color="black";>Акция завершена. 
+<br>Для интереса: всего поступило 43 пожелания. Из них: 16 - на русский, лит-ру; 11 - на математику, алгебру, геометрию. На остальные предметы - по 1-2.
+<br>Теперь идём законно отдыхать.
+</font></label>
+
+<!--
+: получи бонус - ПЯТЁРКУ по ОДНОМУ любому предмету на твой выбор</font></label>
+
+
+<label style="font-size: 4em;"><font color="black";>Акция завершена. Идём отдыхать. 
+Для интереса: поступило 43 пожелания на 5. Из них 16 - русский, литра; 11 - математика, алгебра, геометрия. Остальные предметы - малое количество пожеланий.
+
+: получи бонус - ПЯТЁРКУ по ОДНОМУ любому предмету на твой выбор</font></label>
+
+
+
+
 
 <label style="font-size: 4em; font-weight: bold"></label><br>
 
 
-<table width="100%" cols = "1" rules="none" style = "border: none; border-collapse; font-size: 2em" >
+<table width="100%" cols = "1" rules="rows" style = "border: 3px solid black; border-collapse; font-size: 1em" >
 
    <tr>
     	<td width="100%" style="font-size: 3em">Твой класс:</td>
@@ -66,7 +53,7 @@
 	<td width="100%">
 	<table cols = "2" style="font-size: 2em"><tr width="100%"><td width="50%">
 
-  		<select size="1" id="Класс - число" required name="entry.511480503" style="font-size: 2em">
+  		<select size="1" id="Класс - число" required name="entry.511480503" style="font-size: 3em">
 			<option disabled selected></option>
     			<option value="1"> 1</option>
     			<option value="2"> 2</option>
@@ -82,13 +69,13 @@
    		</select> </td>
 
 	<td  width="50%">
-   		<select size="1" id="буква" required name="entry.831215445" style="font-size: 2em">
+   		<select size="1" id="буква" required name="entry.831215445" style="font-size: 3em">
 			<option disabled selected></option>
-    			<option value="А">&#160А&#160</option>
-    			<option value="Б">&#160Б&#160</option>
-    			<option value="В">&#160В&#160</option>
-    			<option value="Г">&#160Г&#160</option>
-    			<option value="К">&#160К&#160</option>
+    			<option value="А"> А </option>
+    			<option value="Б"> Б </option>
+    			<option value="В"> В </option>
+    			<option value="Г"> Г </option>
+    			<option value="К"> К </option>
    		</select></td>
 	</tr></table></td>
   </tr>
@@ -98,7 +85,8 @@
 <tr>
 
 <td>
-	<label style="font-size: 2.5em;"><font color="black";><br>По какому предмету хочешь получить пятёрку?</font></label>
+
+	<label style="font-size: 3em;"><font color="black";>По какому предмету хочешь получить 5:</font></label>
 </td>
 </tr>
 <tr>
@@ -122,7 +110,7 @@
  		<option value="Физкультура"></option>
 	</datalist>
 
-	<input type="text" list="Предмет" required name="entry.1350243729" style="width: 100%; background: white; font-size: 3em" autocomplete="off">
+	<input type="text" placeholder="Предмет" list="Предмет" required name="entry.1350243729" style="width: 100%; background: white; font-size: 3em">
 
 </td>
 </tr>
@@ -134,7 +122,7 @@
   <tr style = "border: 4px solid black">
 	<td width="25%" style = "background:lightgrey"></td>
 	<td width="50%">
-		<button type="sumbit" class="b_submit"  style = "font-size: 2em;">
+		<button type="sumbit" style = "text-align:center; color:black;  font-size: 2em; background:LightGreen; border:6px solid black;">
         Получить 5</button></td>
 	<td width="25%" style = "background:lightgrey"></td>
   </tr>
@@ -142,6 +130,10 @@
 
 
 </table><br><br>
+
+
+-->
+
 </form>
 
 </body>
